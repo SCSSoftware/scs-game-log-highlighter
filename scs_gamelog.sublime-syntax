@@ -1,0 +1,41 @@
+%YAML 1.2
+---
+name: SCS game log
+file_extensions:
+  - game.log.txt
+first_line_match: '\*\*\*\*\*\*\*\*\*\*\*\* \: log'
+scope: text.scsgamelog
+
+contexts:
+  main:
+    - match: 'log created (.*)'
+      scope: text.scsgamelog.firstline
+
+    - match: '^(.*?) (:)'
+      captures:
+        1: text.scsgamelog.timestamp
+        2: text.scsgamelog.colon
+
+    - match: '\[(sys|cpu|mem|xinput|hashfs|fs|ufs|zipfs|lang|gfx|net|mod_package_manager|dxgi|dx11|disp|sound|di8|bullet|cutscene_data|actor|trigger)\]'
+      scope: text.scsgamelog.brackets
+
+    - match: 'uset (.*?)\n'
+      scope: text.scsgamelog.uset
+
+    - match: ' ((.*?)init ver\.(.*?) (.*?))\n'
+      captures:
+        1: text.scsgamelog.init
+        3: text.scsgamelog.initver
+
+    - match: '(exec(.*?)|dispatch|exit|Loading save (.*?)|Map (.*?) loading (.*?)|mm_flush_repeatedly|game|quit)\n'
+      captures:
+        1: text.scsgamelog.milestones
+
+    - match: '<ERROR>(.*?)\n'
+      scope: text.scsgamelog.error
+
+    - match: '<WARNING>(.*?)\n'
+      scope: text.scsgamelog.warning
+
+    - match: 'DEBUG INFO(.*?)\n'
+      scope: text.scsgamelog.debug

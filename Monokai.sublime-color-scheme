@@ -1,0 +1,73 @@
+{
+    "variables":
+    {
+        "brackets_scs": "deepskyblue",
+        "debug_scs": "hotpink",
+        "colon_scs": "sandybrown",
+        "error_scs": "red",
+        "init_scs": "limegreen",
+        "milestones_scs": "limegreen",
+        "timestamp_scs": "gray",
+        "uset_scs": "gainsboro",
+        "warning_scs": "gold"
+    },
+    "rules":
+    [
+        {
+            "name": "First Line",
+            "scope": "text.scsgamelog.firstline",
+            "foreground": "var(timestamp_scs)"
+        },
+        {
+            "name": "Colon",
+            "scope": "text.scsgamelog.colon",
+            "foreground": "var(colon_scs)"
+        },
+        {
+            "name": "Time",
+            "scope": "text.scsgamelog.timestamp",
+            "foreground": "var(timestamp_scs)"
+        },
+        {
+            "name": "Brackets",
+            "scope": "text.scsgamelog.brackets",
+            "foreground": "var(brackets_scs)"
+        },
+        {
+            "name": "Uset",
+            "scope": "text.scsgamelog.uset",
+            "foreground": "var(uset_scs)"
+        },
+        {
+            "name": "Init",
+            "scope": "text.scsgamelog.init",
+            "foreground": "var(init_scs)"
+        },
+        {
+            "name": "Init Version",
+            "scope": "text.scsgamelog.initver",
+            "font_style": "bold"
+        },
+        {
+            "name": "Milestones",
+            "scope": "text.scsgamelog.milestones",
+            "foreground": "var(milestones_scs)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Error",
+            "scope": "text.scsgamelog.error",
+            "foreground": "var(error_scs)"
+        },
+        {
+            "name": "Warning",
+            "scope": "text.scsgamelog.warning",
+            "foreground": "var(warning_scs)"
+        },
+        {
+            "name": "Debug Info",
+            "scope": "text.scsgamelog.debug",
+            "foreground": "var(debug_scs)"
+        },
+    ]
+}
