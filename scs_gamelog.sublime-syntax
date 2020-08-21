@@ -16,8 +16,9 @@ contexts:
         1: text.scsgamelog.timestamp
         2: text.scsgamelog.colon
 
-    - match: '\[(sys|cpu|mem|xinput|hashfs|fs|ufs|zipfs|lang|gfx|net|mod_package_manager|dxgi|dx11|disp|sound|di8|bullet|cutscene_data|actor|trigger)\]'
-      scope: text.scsgamelog.brackets
+    - match: ' (\[\w+\]) '
+      captures:
+        1: text.scsgamelog.brackets
 
     - match: 'uset (.*?)\n'
       scope: text.scsgamelog.uset
